@@ -31,18 +31,6 @@ target/
 **/webapp/VAADIN/themes/mytheme/styles.css
 /storage/
 
-tools/qpid-broker/6.1.4/work
-!tools/qpid-broker/6.1.4/work/config.json
 
-repository/**/maven-metadata*.xml
-repository/**/_remote.repositories
-repository/**/akunevich/
 **/*.war
-**/envisionable/
-**/copilot-web/
-**/alignmentlabs/
 
-tools/
-mysql/
-docker-logs/
-/protectotron.paw
