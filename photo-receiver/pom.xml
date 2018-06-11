@@ -96,5 +96,11 @@
             <artifactId>joda-time</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>LATEST</version> <!-- 1.11.344 -->
+        </dependency>
+
     </dependencies>
 </project>

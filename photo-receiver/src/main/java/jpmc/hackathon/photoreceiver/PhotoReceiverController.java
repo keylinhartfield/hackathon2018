@@ -24,6 +24,12 @@ public class PhotoReceiverController {
 
             logger.debug("file received from " + serial);
 
+
+            // save to s3
+            // send message to the queue
+
+
+
         } catch (Exception e) {
             logger.error("Error with receiving image", e);
         }
