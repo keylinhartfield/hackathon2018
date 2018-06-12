@@ -22,6 +22,9 @@ public class PhotoReceiverController {
     @Autowired
     private S3 s3;
 
+    @Autowired
+    private SQS sqs;
+
     @RequestMapping(value = "/", method = RequestMethod.POST, consumes = "multipart/form-data")
     @ResponseBody
     public ResponseEntity receiveImage(@RequestPart("file") MultipartFile file) {
@@ -35,6 +38,7 @@ public class PhotoReceiverController {
 
             s3.save(file.getInputStream(), uuid);
 
+            sqs.sendMessage(uuid);
 
 
             // save to s3
