@@ -9,7 +9,6 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
 import java.io.InputStream;
 
 // https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadObjSingleOpJava.html
@@ -20,7 +19,6 @@ public class S3 {
     public void save(InputStream stream, String name) {
         String clientRegion = "us-east-1";
         String bucketName = "hackathon-2018-photo";
-        String fileName = "";
 
         try {
             AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
@@ -52,4 +50,3 @@ public class S3 {
 
 }
 
-}
