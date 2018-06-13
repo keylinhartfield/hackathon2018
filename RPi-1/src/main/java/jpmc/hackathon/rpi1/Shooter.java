@@ -9,6 +9,7 @@ import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -28,8 +29,10 @@ public class Shooter {
     private String profileId;
 
 
+    @Value("${receiver.url}")
     private String receiverUrl;
 
+    @Scheduled(fixedRate = 5000)
     public void process() {
         try {
             String filename = doShot();
