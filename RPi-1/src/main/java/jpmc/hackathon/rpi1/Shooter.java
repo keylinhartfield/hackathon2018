@@ -25,11 +25,8 @@ public class Shooter {
 
     private final static Logger logger = LoggerFactory.getLogger(Shooter.class);
 
-    @Value("${profile}")
-    private String profileId;
 
-
-    @Value("${receiver.url}")
+    @Value("${receiverUrl}")
     private String receiverUrl;
 
     @Scheduled(fixedRate = 5000)
@@ -75,8 +72,6 @@ public class Shooter {
     }
 
     protected String doShot() throws InterruptedException, IOException {
-        logger.info("PROD version of shooter");
-
         String filename = "/ram/" + new DateTime().toString("MM-dd-yyyy-hh-mm-ss") + ".jpg";
 
         logger.debug("Shot...");

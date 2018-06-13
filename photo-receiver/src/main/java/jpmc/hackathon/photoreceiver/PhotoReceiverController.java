@@ -27,7 +27,7 @@ public class PhotoReceiverController {
 
     @RequestMapping(value = "/", method = RequestMethod.POST, consumes = "multipart/form-data")
     @ResponseBody
-    public ResponseEntity receiveImage(@RequestPart("file") MultipartFile file) {
+    public ResponseEntity receiveImage(@RequestPart("file") MultipartFile file, String serial) {
 
         try {
 
