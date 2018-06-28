@@ -8,7 +8,6 @@ import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -23,9 +22,6 @@ import java.util.List;
 public class Shooter {
 
     private final static Logger logger = LoggerFactory.getLogger(Shooter.class);
-
-    @Value("${profile}")
-    private String profileId;
 
 
     private String receiverUrl;
