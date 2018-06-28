@@ -32,8 +32,8 @@ public class Shooter {
     public void process() {
         try {
             String filename = doShot();
-            submitShotToReceiver(filename);
-        } catch (URISyntaxException | InterruptedException | IOException e) {
+         //   submitShotToReceiver(filename);
+        } catch (Throwable e) {
             logger.error("Can't do shot", e);
         }
     }
