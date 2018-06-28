@@ -8,13 +8,16 @@ public class User {
 
     private String lastname;
 
+    private String id;
+
     public User() {
     }
 
-    public User(String photoId, String firstname, String lastname) {
+    public User(String id, String photoId, String firstname, String lastname) {
         this.photoId = photoId;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.id = id ;
     }
 
     public String getPhotoId() {
@@ -40,4 +43,8 @@ public class User {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
+    public String getId() {return id;}
+
+    public void setId(String id){this.id=id;}
 }

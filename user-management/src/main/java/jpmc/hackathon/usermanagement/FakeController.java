@@ -15,11 +15,11 @@ public class FakeController {
     @GetMapping(path = "/list")
     public List<User> list() {
         return Stream.of(
-                new User(UUID.randomUUID().toString(), "111", "11111"),
-                new User(UUID.randomUUID().toString(), "222", "22222"),
-                new User(UUID.randomUUID().toString(), "333", "33333"),
-                new User(UUID.randomUUID().toString(), "444", "44444"),
-                new User(UUID.randomUUID().toString(), "555", "55555")
+                new User(UUID.randomUUID().toString(),UUID.randomUUID().toString(), "Rib", "Fine"),
+                new User(UUID.randomUUID().toString(),UUID.randomUUID().toString(), "222", "22222"),
+                new User(UUID.randomUUID().toString(),UUID.randomUUID().toString(), "333", "33333"),
+                new User(UUID.randomUUID().toString(),UUID.randomUUID().toString(), "444", "44444"),
+                new User(UUID.randomUUID().toString(),UUID.randomUUID().toString(), "555", "55555")
         ).collect(Collectors.toList());
     }
 
