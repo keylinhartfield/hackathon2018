@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class LedControl {
 
 
-    @Scheduled(fixedDelay = 1000)
+    @Scheduled(fixedDelay = 7000)
     public void doMagic() {
 
 
@@ -41,7 +41,7 @@ public class LedControl {
 
         System.out.println("--> GPIO state should be: ON");
 
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
         // turn off gpio pin #01
         pin.low();
@@ -67,7 +67,7 @@ public class LedControl {
 
         System.out.println("--> GPIO state should be: ON");
 
-        Thread.sleep(5000);
+        Thread.sleep(2000);
 
         // turn off gpio pin #01
         pin.low();
