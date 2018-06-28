@@ -10,6 +10,8 @@ public class User {
 
     private String id;
 
+    private boolean deleted;
+
     public User() {
     }
 
@@ -18,6 +20,7 @@ public class User {
         this.firstname = firstname;
         this.lastname = lastname;
         this.id = id ;
+        this.deleted = deleted;
     }
 
     public String getPhotoId() {
@@ -47,4 +50,12 @@ public class User {
     public String getId() {return id;}
 
     public void setId(String id){this.id=id;}
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
 }

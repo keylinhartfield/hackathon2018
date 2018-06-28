@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class LedControl {
 
 
-    @Scheduled(fixedRate = 3000)
+    @Scheduled(fixedDelay = 1000)
     public void doMagic() {
 
 
