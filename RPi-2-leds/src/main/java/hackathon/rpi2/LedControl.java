@@ -17,8 +17,8 @@ public class LedControl {
     final GpioController gpio = GpioFactory.getInstance();
 
     {
-        pinGreen = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "green", PinState.HIGH);
-        pinRed = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03, "red", PinState.HIGH);
+        pinGreen = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "green");
+        pinRed = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03, "red");
 
     }
 
@@ -53,6 +53,8 @@ public class LedControl {
         pin.setShutdownOptions(true, PinState.LOW);
 
         System.out.println("--> GPIO state should be: ON");
+
+        pin.high();
 
         Thread.sleep(2000);
 
