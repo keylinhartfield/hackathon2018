@@ -33,7 +33,7 @@ public class LedControl {
             run(pinGreen);
             run(pinRed);
 
-            gpio.shutdown();
+           // gpio.shutdown();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
