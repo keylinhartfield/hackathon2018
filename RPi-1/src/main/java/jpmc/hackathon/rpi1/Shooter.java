@@ -71,8 +71,6 @@ public class Shooter {
     }
 
     protected String doShot() throws InterruptedException, IOException {
-        logger.info("PROD version of shooter");
-
         String filename = "/ram/" + new DateTime().toString("MM-dd-yyyy-hh-mm-ss") + ".jpg";
 
         logger.debug("Shot...");
@@ -82,6 +80,7 @@ public class Shooter {
         List<String> params = new ArrayList<>();
         params.add("raspistill");
         params.add("--nopreview");
+        params.add("-w 1296 -h 972");
      //   params.addAll(config.getParams());
         params.add("-o");
         params.add(filename);
