@@ -18,7 +18,7 @@ public class S3 {
 
     public void save(InputStream stream, String name) {
         String clientRegion = "us-east-1";
-        String bucketName = "hackathon-2018-photo";
+        String bucketName = "hackathon-2018-new-photo";
 
         try {
             AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
