@@ -15,7 +15,7 @@ public class User {
     public User() {
     }
 
-    public User(String id, String photoId, String firstname, String lastname, boolean deleted) {
+    public User(String id, String photoId, String firstname, String lastname) {
         this.photoId = photoId;
         this.firstname = firstname;
         this.lastname = lastname;
