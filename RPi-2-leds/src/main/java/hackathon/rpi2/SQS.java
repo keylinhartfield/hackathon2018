@@ -6,6 +6,7 @@ import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
 import com.amazonaws.services.sqs.model.DeleteMessageRequest;
 import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -39,11 +40,16 @@ public class SQS {
             System.out.println("\nMessage received.");
             System.out.println("  ID: " + message.getMessageId());
             System.out.println("  Receipt handle: " + message.getReceiptHandle());
-            System.out.println("  Message body (first 5 characters): "
-                    + message.getBody().substring(0, 5));
+            System.out.println("  Message body: " + message.getBody());
 
 
-            ledControl.green();
+            AccessControl accessControl = new Gson().fromJson(message.getBody(), AccessControl.class);
+
+            if (accessControl.getStatus()) {
+                ledControl.green();
+            } else {
+                ledControl.red();
+            }
 
 
             final String messageReceiptHandle = messages.get(0).getReceiptHandle();

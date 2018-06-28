@@ -31,6 +31,14 @@ public class LedControl {
         }
     }
 
+    public void red() {
+        try {
+            run(pinRed);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     //@Scheduled(fixedDelay = 7000)
     public void doMagic() {
 
@@ -75,30 +83,7 @@ public class LedControl {
 
     }
 
-    private void red() throws InterruptedException {
-        System.out.println("<--Pi4J--> GPIO Control Example ... started.");
 
-        // create gpio controller
-        final GpioController gpio = GpioFactory.getInstance();
-
-        // provision gpio pin #01 as an output pin and turn on
-        final GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03, "green", PinState.HIGH);
-
-        // set shutdown state for this pin
-        pin.setShutdownOptions(true, PinState.LOW);
-
-        System.out.println("--> GPIO state should be: ON");
-
-        Thread.sleep(2000);
-
-        // turn off gpio pin #01
-        pin.low();
-        System.out.println("--> GPIO state should be: OFF");
-
-        gpio.shutdown();
-
-        System.out.println("Exiting ControlGpioExample");
-    }
 
 
 }
