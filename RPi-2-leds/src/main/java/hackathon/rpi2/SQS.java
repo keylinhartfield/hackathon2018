@@ -22,7 +22,7 @@ public class SQS {
     @Scheduled(fixedRate = 100)
     public void listen() {
 
-        String queueUrl = "https://sqs.us-east-2.amazonaws.com/076189656150/photo-received";
+        String queueUrl = "https://sqs.us-east-2.amazonaws.com/076189656150/control";
 
 
         final AmazonSQS sqsExtended =
