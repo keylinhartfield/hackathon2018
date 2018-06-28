@@ -5,7 +5,6 @@ import org.apache.http.HttpEntity;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -18,6 +17,7 @@ import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Component
 public class Shooter {
@@ -71,7 +71,7 @@ public class Shooter {
     }
 
     protected String doShot() throws InterruptedException, IOException {
-        String filename = "/home/pi/hackathon2018/photo/" + new DateTime().toString("MM-dd-yyyy-hh-mm-ss") + ".jpg";
+        String filename = "/home/pi/hackathon2018/photo/" + Math.abs(new Random().nextInt()) + ".jpg";
 
         logger.debug("Shot...");
 
