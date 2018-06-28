@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './styles/sass/main.css';
 import 'whatwg-fetch'
 import PersonList from './Components/PersonList';
+import Exist from './Components/Exist';
 
 class App extends Component {
 
@@ -19,7 +20,7 @@ class App extends Component {
                     throw new Error("Bad response from server");
                 }
                 else{
-                   // console.log(response.json())
+
                     return response.json();
                 }
 
@@ -33,16 +34,33 @@ class App extends Component {
             personList
         }))
 
+
     }
 
   render() {
-    return (
-      <div className="App">
-          <h1>The main App</h1>
-        <PersonList personList={this.state.personList}/>
+    const arrayLength = this.state.personList.length;
+    console.log(arrayLength);
 
-      </div>
-    );
+    if(arrayLength >=5)
+    {
+        return (
+              <div className="App">
+                  <h1>The main App</h1>
+                <PersonList personList={this.state.personList}/>
+
+              </div>
+            );
+    }
+    else{
+    return (
+             <div className="App">
+                 <h1>The main App</h1>
+                 <Exist />
+
+             </div>
+          );
+    }
+
   }
 }
 
