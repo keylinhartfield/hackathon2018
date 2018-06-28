@@ -93,7 +93,7 @@ public class Shooter {
 
             logger.debug("Params: " + params);
 
-            Process process = new ProcessBuilder()
+            Process process = new ProcessBuilder(params)
                     .start();
             process.waitFor();
 
