@@ -81,6 +81,7 @@ public class Shooter {
 
         List<String> params = new ArrayList<>();
         params.add("raspistill");
+        params.add("--nopreview");
      //   params.addAll(config.getParams());
         params.add("-o");
         params.add(filename);
