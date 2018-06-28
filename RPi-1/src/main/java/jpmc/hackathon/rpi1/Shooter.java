@@ -32,9 +32,7 @@ public class Shooter {
     public void process() {
         try {
             String filename = doShot();
-            new File(filename);
-
-         //   submitShotToReceiver(filename);
+              submitShotToReceiver(filename);
         } catch (Throwable e) {
             logger.error("Can't do shot", e);
         }
