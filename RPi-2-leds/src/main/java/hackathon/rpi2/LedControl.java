@@ -11,6 +11,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class LedControl {
+    final GpioPinDigitalOutput pinGreen;
+
+    final GpioPinDigitalOutput pinRed;
+    final GpioController gpio = GpioFactory.getInstance();
+
+    {
+        pinGreen = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "green", PinState.HIGH);
+        pinRed = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03, "red", PinState.HIGH);
+
+    }
 
 
     @Scheduled(fixedDelay = 7000)
@@ -18,8 +28,13 @@ public class LedControl {
 
 
         try {
-            red();
-            green();
+
+
+            run(pinGreen);
+            run(pinRed);
+
+            gpio.shutdown();
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -27,14 +42,12 @@ public class LedControl {
 
     }
 
-    private void green() throws InterruptedException {
+    private void run(GpioPinDigitalOutput pin) throws InterruptedException {
         System.out.println("<--Pi4J--> GPIO Control Example ... started.");
 
         // create gpio controller
-        final GpioController gpio = GpioFactory.getInstance();
 
         // provision gpio pin #01 as an output pin and turn on
-        final GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "green", PinState.HIGH);
 
         // set shutdown state for this pin
         pin.setShutdownOptions(true, PinState.LOW);
@@ -47,7 +60,6 @@ public class LedControl {
         pin.low();
         System.out.println("--> GPIO state should be: OFF");
 
-         gpio.shutdown();
 
         System.out.println("Exiting ControlGpioExample");
 
