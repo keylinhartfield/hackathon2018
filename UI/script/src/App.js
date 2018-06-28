@@ -54,7 +54,7 @@ class App extends Component {
     else{
     return (
              <div className="App">
-                 <h1>The main App</h1>
+
                  <Exist />
 
              </div>

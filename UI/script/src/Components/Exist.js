@@ -8,8 +8,10 @@ class Exist extends Component {
 
     render() {
         return (
+        <div className="layout">
+            <h1>Exist Page</h1>
             <div className="Exist">
-               <div className="form-cover">
+               <div className="cover">
                     <div className="form-label">
                         <p>First Name:</p>
                     </div>
@@ -17,7 +19,7 @@ class Exist extends Component {
                         <input />
                     </div>
                </div>
-               <div className="form-cover">
+               <div className="cover">
                     <div className="form-label">
                         <p>Last Name:</p>
                     </div>
@@ -25,13 +27,13 @@ class Exist extends Component {
                          <input />
                       </div>
                 </div>
-                <div className="form-cover">
-                    <div className="form-cover-inner">
+                <div className="cover">
+                    <div className="cover-inner">
                         <button type="submit">Submit</button>
                         <button type="button">Edit</button>
                     </div>
                 </div>
-
+         </div>
 
 
 

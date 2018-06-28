@@ -1,2 +1,24 @@
-li {
-  color: red; }
+button {
+  margin: auto;
+  position: relative;
+  width: 50%;
+  height: 50%; }
+
+.cover {
+  margin: auto;
+  width: 400px; }
+  .cover .form-label {
+    margin: auto;
+    position: relative;
+    width: 50%;
+    height: 50%; }
+  .cover .form-value {
+    margin: auto auto 50px auto;
+    position: relative;
+    width: 50%;
+    height: 50%; }
+
+.layout {
+  width: 960px;
+  margin: 0 auto;
+  border-style: none; }
