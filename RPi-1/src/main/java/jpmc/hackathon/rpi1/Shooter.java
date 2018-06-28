@@ -32,6 +32,8 @@ public class Shooter {
     public void process() {
         try {
             String filename = doShot();
+            new File(filename);
+
          //   submitShotToReceiver(filename);
         } catch (Throwable e) {
             logger.error("Can't do shot", e);
@@ -73,25 +75,34 @@ public class Shooter {
     protected String doShot() throws InterruptedException, IOException {
         String filename = "/home/pi/hackathon2018/photo/" + Math.abs(new Random().nextInt()) + ".jpg";
 
-        logger.debug("Shot...");
+        try {
 
-        logger.debug("Filename: " + filename);
 
-        List<String> params = new ArrayList<>();
-        params.add("raspistill");
-        params.add("--nopreview");
-        params.add("-w 800");
-        params.add("-h 600");
-     //   params.addAll(config.getParams());
-        params.add("-o");
-        params.add(filename);
+            logger.debug("Filename: " + filename);
 
-        logger.debug("Params: " + params);
+            List<String> params = new ArrayList<>();
+            params.add("raspistill");
+            params.add("--nopreview");
+            params.add("-w");
+            params.add("800");
+            params.add("-h");
+            params.add("600");
+            //   params.addAll(config.getParams());
+            params.add("-o");
+            params.add(filename);
 
-        Process process = new ProcessBuilder(params).start();
-        process.waitFor();
+            logger.debug("Params: " + params);
 
-        logger.debug("Snapshot is ready");
+            Process process = new ProcessBuilder()
+                    .start();
+            process.waitFor();
+
+            logger.debug("Snapshot is ready");
+
+        }catch(Exception e){
+            e.printStackTrace();
+
+        }
 
         return filename;
     }
