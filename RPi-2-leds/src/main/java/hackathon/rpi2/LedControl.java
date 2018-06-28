@@ -5,7 +5,6 @@ import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 
@@ -23,7 +22,16 @@ public class LedControl {
     }
 
 
-    @Scheduled(fixedDelay = 7000)
+
+    public void green() {
+        try {
+            run(pinGreen);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //@Scheduled(fixedDelay = 7000)
     public void doMagic() {
 
 
